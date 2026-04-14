@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import BusinessDashboard from '../views/BusinessDashboard.vue'
+import TourDetailView from "../views/TourDetailView.vue"
+import ToursView from "../views/ToursView.vue"
 import HomeView from "../views/HomeView.vue";
 import HotelsView from "../views/HotelsView.vue";
 import RestaurantsView from "../views/RestaurantsView.vue";
@@ -20,6 +22,8 @@ const router = createRouter({
   scrollBehavior: () => ({ top: 0 }),
   routes: [
     { path: "/", component: HomeView },
+    { path: "/tours", component: ToursView },
+    { path: "/tours/:id", component: TourDetailView },
     { path: "/hotels", component: HotelsView },
     { path: "/restaurants", component: RestaurantsView },
     { path: "/events", component: EventsView },

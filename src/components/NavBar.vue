@@ -43,7 +43,7 @@
           Home
         </RouterLink>
         <RouterLink
-          to="/hotels"
+          x_tours_placeholder
           class="nav-link"
           :class="{ 'nav-link-active': $route.path === '/hotels' }"
         >
@@ -60,7 +60,7 @@
               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
             />
           </svg>
-          Hotels
+          {{ $t("nav.hotels") }}
         </RouterLink>
         <RouterLink
           to="/restaurants"
@@ -80,7 +80,7 @@
               d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
             />
           </svg>
-          Restaurants
+          {{ $t("nav.restaurants") }}
         </RouterLink>
         <RouterLink
           to="/events"
@@ -100,7 +100,7 @@
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             />
           </svg>
-          Events
+          {{ $t("nav.events") }}
         </RouterLink>
         <RouterLink
           to="/about"
@@ -238,8 +238,9 @@
                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
               />
             </svg>
-            Profile
+            {{ $t("nav.profile") }}
           </RouterLink>
+          <div class="lang-switcher"><button v-for="l in langs" :key="l" @click="setLang(l)" :class="['lang-btn', locale===l?'lang-active':'']">{{ l.toUpperCase() }}</button></div>
           <button
             @click="authStore.logout()"
             class="flex items-center gap-2 px-3 py-2 rounded-xl text-gray-500 hover:text-red-400 transition-all text-sm"
@@ -257,7 +258,7 @@
                 d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
               />
             </svg>
-            Logout
+            {{ $t("nav.logout") }}
           </button>
         </template>
 
@@ -266,7 +267,7 @@
             to="/login"
             class="px-4 py-2 rounded-xl text-gray-300 hover:text-white transition-all text-sm font-medium border border-transparent hover:border-white/10"
           >
-            Sign In
+            {{ $t("nav.signin") }}
           </RouterLink>
           <RouterLink
             to="/register"
@@ -388,7 +389,7 @@
             to="/login"
             @click="mobileOpen = false"
             class="flex-1 py-3 text-center border border-white/10 text-white rounded-xl text-sm font-medium"
-            >Sign In</RouterLink
+            >{{ $t("nav.signin") }}</RouterLink
           >
           <RouterLink
             v-if="!authStore.isLoggedIn"
@@ -402,7 +403,7 @@
             to="/profile"
             @click="mobileOpen = false"
             class="flex-1 py-3 text-center border border-white/10 text-white rounded-xl text-sm font-medium"
-            >Profile</RouterLink
+            >{{ $t("nav.profile") }}</RouterLink
           >
           <button
             v-if="authStore.isLoggedIn"
@@ -412,7 +413,7 @@
             "
             class="flex-1 py-3 text-center text-red-400 border border-red-500/20 rounded-xl text-sm font-medium"
           >
-            Logout
+            {{ $t("nav.logout") }}
           </button>
         </div>
       </div>
@@ -421,6 +422,10 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+const langs = ['en','ru','ky']
+const setLang = (l) => { locale.value = l; localStorage.setItem('lang', l) }
 import { ref, onMounted, onUnmounted } from "vue";
 import { useAuthStore } from "../stores/auth";
 
@@ -504,4 +509,8 @@ const mobileLinks = [
   opacity: 0;
   transform: translateY(-8px);
 }
+.lang-switcher { display:flex; gap:4px; align-items:center; margin-right:8px; }
+.lang-btn { padding:4px 8px; border-radius:6px; font-size:11px; font-weight:700; cursor:pointer; border:0.5px solid rgba(255,255,255,0.12); background:transparent; color:rgba(255,255,255,0.4); font-family:"DM Sans",sans-serif; transition:all .2s; }
+.lang-btn:hover { color:#fff; border-color:rgba(255,255,255,0.3); }
+.lang-active { background:rgba(201,168,76,0.15); border-color:rgba(201,168,76,0.4); color:#C9A84C; }
 </style>

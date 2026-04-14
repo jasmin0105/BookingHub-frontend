@@ -85,6 +85,7 @@
           </div>
           <div class="booking-row-right">
             <span :class="['status-badge', `status-${b.status}`]">{{ b.status }}</span>
+            <button v-if="b.status === 'pending'" @click="openPayment(b)" class="pay-now-btn">Pay Now</button>
             <PDFReceipt :booking="b" :userName="user?.username || 'Guest'"/>
             <button
               v-if="b.status !== 'cancelled'"
@@ -181,7 +182,8 @@
         </div>
       </div>
     </div>
-  </div>
+    <PaymentModal :show="showPayment" :booking="payingBooking" @close="showPayment=false" @success="loadBookings"/>
+</div>
 </template>
 
 <script setup>
@@ -189,6 +191,7 @@ import { ref, computed, onMounted } from "vue";
 import { useAuthStore } from "../stores/auth";
 import { bookingsAPI, adminAPI } from "../api";
 import PDFReceipt from "../components/PDFReceipt.vue";
+import PaymentModal from "../components/PaymentModal.vue";
 
 const authStore = useAuthStore();
 const user = computed(() => authStore.user);
@@ -296,6 +299,10 @@ const loadUsers = async () => {
     loadingUsers.value = false;
   }
 };
+
+const payingBooking = ref(null)
+const showPayment = ref(false)
+const openPayment = (b) => { payingBooking.value = b; showPayment.value = true }
 
 const cancelBooking = async (id) => {
   try {
@@ -557,6 +564,7 @@ onMounted(async () => {
   color: #fca5a5;
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
+.pay-now-btn { font-size:10px;color:#C9A84C;background:rgba(201,168,76,0.1);border:0.5px solid rgba(201,168,76,0.25);padding:3px 8px;border-radius:6px;cursor:pointer; }
 .cancel-btn {
   font-size: 0.7rem;
   color: rgba(239, 68, 68, 0.6);
