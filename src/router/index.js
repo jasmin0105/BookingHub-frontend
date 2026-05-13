@@ -24,6 +24,7 @@ const router = createRouter({
     { path: "/", component: HomeView },
     { path: "/tours", component: ToursView },
     { path: "/tours/:id", component: TourDetailView },
+    { path: "/ai-assistant", component: () => import("../views/AIAssistantView.vue") },
     { path: "/hotels", component: HotelsView },
     { path: "/restaurants", component: RestaurantsView },
     { path: "/events", component: EventsView },
