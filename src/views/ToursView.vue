@@ -28,7 +28,7 @@
     <div class="tours-grid">
       <div v-for="tour in filtered" :key="tour.id" class="tour-card" @click="$router.push(`/tours/${tour.id}`)">
         <div class="card-image">
-          <img v-if="tour.image_url" :src="tour.image_url" :alt="tour.name" />
+          <img v-if="tour.image" :src="tour.image" :alt="tour.name" />
           <div v-else class="card-placeholder">
             <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>

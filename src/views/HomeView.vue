@@ -529,6 +529,50 @@
     </section>
 
     <!-- CTA -->
+    <!-- NOMAD AND GUIDES -->
+    <section class="py-20 px-6 bg-[#111118]">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-end justify-between mb-10 scroll-fade">
+          <div>
+            <p class="text-[#C9A84C] text-xs font-semibold tracking-widest uppercase mb-2">Unique Experiences</p>
+            <h2 class="text-4xl font-black text-white">Explore More</h2>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <RouterLink to="/nomad" class="group relative overflow-hidden rounded-2xl border border-white/5 hover:border-[rgba(201,168,76,0.3)] transition-all p-8 bg-[#0D0D17]">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(201,168,76,0.1)] border border-[rgba(201,168,76,0.2)] flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-[#C9A84C] transition-colors">Nomad Experience</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Юрта, конная прогулка и национальная еда — настоящая кочевая жизнь Кыргызстана в одном пакете.</p>
+            <div class="flex items-center gap-2 text-[#C9A84C] text-sm font-bold">
+              <span>Explore packages</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </RouterLink>
+          <RouterLink to="/guides" class="group relative overflow-hidden rounded-2xl border border-white/5 hover:border-[rgba(201,168,76,0.3)] transition-all p-8 bg-[#0D0D17]">
+            <div class="w-14 h-14 rounded-xl bg-[rgba(201,168,76,0.1)] border border-[rgba(201,168,76,0.2)] flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-3 group-hover:text-[#C9A84C] transition-colors">Local Guides</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Профессиональные местные гиды которые знают каждую тропу и каждую легенду Кыргызстана.</p>
+            <div class="flex items-center gap-2 text-[#C9A84C] text-sm font-bold">
+              <span>Find a guide</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </RouterLink>
+        </div>
+      </div>
+    </section>
+
     <section class="py-24 px-6 relative overflow-hidden">
       <div
         class="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(201,168,76,0.03)] to-transparent"
