@@ -132,6 +132,13 @@ cd ~/Desktop/BookingHub_frontend cat > src/components/NavBar.vue << 'NAVEOF'
           AI Assistant
         </RouterLink>
         <RouterLink
+          to="/nomad"
+          class="nav-link"
+          :class="{ 'nav-link-active': $route.path === '/nomad' }"
+        >
+          🏕️ Nomad
+        </RouterLink>
+        <RouterLink
           to="/about"
           class="nav-link"
           :class="{ 'nav-link-active': $route.path === '/about' }"
